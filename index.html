@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinematic Video Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">Cinematic Generator</div>
+      <div class="tagline">Turn your stills into stunning 5-second videos</div>
+    </div>
+    <div class="main-interface">
+      <div class="upload-section" onclick="uploadImage()">
+        <div class="upload-icon">📸</div>
+        <h3>Upload Your Image</h3>
+        <p>Drag & drop or click to select an image</p>
+        <p class="subtext">Supports JPG, PNG, WebP up to 10MB</p>
+      </div>
+      <div class="controls-panel">
+        <div class="control-group">
+          <label class="control-label">Motion Intensity</label>
+          <div class="slider-container">
+            <input type="range" class="slider" min="0" max="100" value="75" oninput="updateSliderValue(this, 'motion-value')">
+            <span class="slider-value" id="motion-value">75%</span>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Camera Movement</label>
+          <select class="dropdown">
+            <option>Cinematic Pan</option>
+            <option>Dolly Zoom</option>
+            <option>Orbital Rotation</option>
+            <option>Tracking Shot</option>
+            <option>Static Focus</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label class="control-label">3D Depth Enhancement</label>
+          <div class="slider-container">
+            <input type="range" class="slider" min="0" max="100" value="60" oninput="updateSliderValue(this, 'depth-value')">
+            <span class="slider-value" id="depth-value">60%</span>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Material Physics</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" class="checkbox" checked> Fabric Dynamics</label>
+            <label class="checkbox-item"><input type="checkbox" class="checkbox" checked> Hair Movement</label>
+            <label class="checkbox-item"><input type="checkbox" class="checkbox"> Water Effects</label>
+            <label class="checkbox-item"><input type="checkbox" class="checkbox"> Wind Simulation</label>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Human Motion</label>
+          <div class="slider-container">
+            <input type="range" class="slider" min="0" max="100" value="45" oninput="updateSliderValue(this, 'human-value')">
+            <span class="slider-value" id="human-value">45%</span>
+          </div>
+        </div>
+        <button class="generate-btn" onclick="generateVideo()">🎥 Generate Cinematic Video</button>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎭</div>
+        <div class="feature-title">Precise Motion Adaptability</div>
+        <p>Advanced AI analyzes your image to create natural, realistic movements that respect physics and anatomy.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏗️</div>
+        <div class="feature-title">3D Model Rendering</div>
+        <p>Converts 2D images into detailed 3D models with accurate depth mapping and realistic material properties.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚶</div>
+        <div class="feature-title">Human Figure Tracking</div>
+        <p>Sophisticated pose estimation and movement generation for natural human animations and gestures.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎬</div>
+        <div class="feature-title">Cinematic Quality</div>
+        <p>Professional camera movements, lighting adjustments, and post-processing for movie-quality results.</p>
+      </div>
+    </div>
+    <div class="preview-section">
+      <h3 class="preview-heading">Video Preview</h3>
+      <div class="preview-placeholder" id="preview-area">
+        <div class="placeholder-content">
+          <div class="placeholder-icon">🎥</div>
+          <p>Your generated video will appear here</p>
+        </div>
+      </div>
+      <div class="progress-bar" id="progress-container" style="display: none;">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div id="status-text" class="status-text"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
